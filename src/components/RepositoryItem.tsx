@@ -4,6 +4,9 @@ import { View, StyleSheet } from "react-native";
 import { StyledText } from "./StyledText";
 import { RepositoryStats } from "./RepositoryStats";
 
+//* THEME *//
+import { theme } from "../theme";
+
 //* INTERFACES *//
 import { IRepository } from "../interfaces";
 
@@ -18,7 +21,7 @@ export const RepositoryItem: React.FC<Props> = ({ repository }) => {
         {repository.fullName}
       </StyledText>
       <StyledText>{repository.description}</StyledText>
-      <StyledText>{repository.language}</StyledText>
+      <StyledText style={Styles.lenguage}>{repository.language}</StyledText>
       <RepositoryStats repository={repository} />
     </View>
   );
@@ -29,9 +32,9 @@ const Styles = StyleSheet.create({
     padding: 20,
     paddingVertical: 5,
   },
-  strong: {
-    color: "#09f",
-    fontWeight: "bold",
-    marginBottom: 5,
+  lenguage: {
+    padding: 4,
+    color: theme.colors.white,
+    backgroundColor: theme.colors.primary,
   },
 });

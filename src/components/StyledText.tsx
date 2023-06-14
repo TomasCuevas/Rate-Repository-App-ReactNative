@@ -10,7 +10,8 @@ interface Props {
   color?: "primary" | "secondary";
   fontSize?: "subheading";
   fontWeight?: "bold";
-  props?: any;
+  style?: any;
+  [key: string]: any;
 }
 
 export const StyledText: React.FC<Props> = ({
@@ -19,6 +20,7 @@ export const StyledText: React.FC<Props> = ({
   color,
   fontSize,
   fontWeight,
+  style,
   ...props
 }) => {
   const textStyles = [
@@ -28,6 +30,7 @@ export const StyledText: React.FC<Props> = ({
     color === "secondary" && Styles.colorSecondary,
     fontSize === "subheading" && Styles.subheading,
     fontWeight === "bold" && Styles.bold,
+    style,
   ];
 
   return (
