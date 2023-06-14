@@ -1,26 +1,6 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  Alert,
-  TouchableNativeFeedback,
-} from "react-native";
+//* MAIN-COMPONENT *//
+import { Main } from "./src/components/Main";
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <TouchableNativeFeedback onPress={() => Alert.alert("Tocaste el texto.")}>
-        <Text>Hola Mundo!</Text>
-      </TouchableNativeFeedback>
-    </View>
-  );
+  return <Main />;
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
