@@ -1,7 +1,10 @@
-import { FlatList, Text, View } from "react-native";
+import { FlatList, Text } from "react-native";
 
-import { repositoriesData } from "../data";
+//* COMPONENT *//
 import { RepositoryItem } from "./RepositoryItem";
+
+//* DATA *//
+import { repositoriesData } from "../data";
 
 export const RepositoryList = () => {
   return (

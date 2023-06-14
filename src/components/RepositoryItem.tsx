@@ -1,4 +1,7 @@
-import { Text, View } from "react-native";
+import { View, StyleSheet } from "react-native";
+
+//* COMPONENT *//
+import { StyledText } from "./StyledText";
 
 //* INTERFACES *//
 import { IRepository } from "../interfaces";
@@ -9,17 +12,28 @@ interface Props {
 
 export const RepositoryItem: React.FC<Props> = ({ repository }) => {
   return (
-    <View style={{ padding: 20, paddingBottom: 5, paddingTop: 5 }}>
-      <Text style={{ fontWeight: "bold", marginBottom: 3 }}>
-        id: {repository.id}
-      </Text>
-      <Text>FullName: {repository.fullName}</Text>
-      <Text>Description: {repository.description}</Text>
-      <Text>Lenguage: {repository.language}</Text>
-      <Text>Starts: {repository.stargazersCount}</Text>
-      <Text>Forks: {repository.forksCount}</Text>
-      <Text>Reviews: {repository.reviewCount}</Text>
-      <Text>Rating: {repository.ratingAverage}</Text>
+    <View style={Styles.container}>
+      <StyledText fontWeight="bold" fontSize="subheading">
+        {repository.fullName}
+      </StyledText>
+      <StyledText>{repository.description}</StyledText>
+      <StyledText>{repository.language}</StyledText>
+      <StyledText>Stars: {repository.stargazersCount}</StyledText>
+      <StyledText>Forks: {repository.forksCount}</StyledText>
+      <StyledText>Reviews: {repository.reviewCount}</StyledText>
+      <StyledText>Rating: {repository.ratingAverage}</StyledText>
     </View>
   );
 };
+
+const Styles = StyleSheet.create({
+  container: {
+    padding: 20,
+    paddingVertical: 5,
+  },
+  strong: {
+    color: "#09f",
+    fontWeight: "bold",
+    marginBottom: 5,
+  },
+});
