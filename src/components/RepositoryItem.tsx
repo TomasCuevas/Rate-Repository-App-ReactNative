@@ -9,6 +9,7 @@ import { theme } from "../theme";
 
 //* INTERFACES *//
 import { IRepository } from "../interfaces";
+import { RepositoryItemHeader } from "./RepositoryItemHeader";
 
 interface Props {
   repository: IRepository;
@@ -17,12 +18,7 @@ interface Props {
 export const RepositoryItem: React.FC<Props> = ({ repository }) => {
   return (
     <View style={Styles.container}>
-      <Image style={Styles.image} source={{ uri: repository.ownerAvatarUrl }} />
-      <StyledText fontWeight="bold" fontSize="subheading">
-        {repository.fullName}
-      </StyledText>
-      <StyledText>{repository.description}</StyledText>
-      <StyledText style={Styles.lenguage}>{repository.language}</StyledText>
+      <RepositoryItemHeader repository={repository} />
       <RepositoryStats repository={repository} />
     </View>
   );
@@ -32,18 +28,5 @@ const Styles = StyleSheet.create({
   container: {
     paddingHorizontal: 20,
     paddingVertical: 5,
-  },
-  lenguage: {
-    padding: 4,
-    color: theme.colors.white,
-    backgroundColor: theme.colors.primary,
-    alignSelf: "flex-start",
-    borderRadius: 7,
-    overflow: "hidden",
-    marginVertical: 5,
-  },
-  image: {
-    width: 48,
-    height: 48,
   },
 });
