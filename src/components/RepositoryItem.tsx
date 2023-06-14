@@ -1,4 +1,4 @@
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Image } from "react-native";
 
 //* COMPONENT *//
 import { StyledText } from "./StyledText";
@@ -17,6 +17,7 @@ interface Props {
 export const RepositoryItem: React.FC<Props> = ({ repository }) => {
   return (
     <View style={Styles.container}>
+      <Image style={Styles.image} source={{ uri: repository.ownerAvatarUrl }} />
       <StyledText fontWeight="bold" fontSize="subheading">
         {repository.fullName}
       </StyledText>
@@ -29,12 +30,20 @@ export const RepositoryItem: React.FC<Props> = ({ repository }) => {
 
 const Styles = StyleSheet.create({
   container: {
-    padding: 20,
+    paddingHorizontal: 20,
     paddingVertical: 5,
   },
   lenguage: {
     padding: 4,
     color: theme.colors.white,
     backgroundColor: theme.colors.primary,
+    alignSelf: "flex-start",
+    borderRadius: 7,
+    overflow: "hidden",
+    marginVertical: 5,
+  },
+  image: {
+    width: 48,
+    height: 48,
   },
 });
