@@ -2,6 +2,7 @@ import { View, StyleSheet } from "react-native";
 
 //* COMPONENT *//
 import { StyledText } from "./StyledText";
+import { RepositoryStats } from "./RepositoryStats";
 
 //* INTERFACES *//
 import { IRepository } from "../interfaces";
@@ -18,10 +19,7 @@ export const RepositoryItem: React.FC<Props> = ({ repository }) => {
       </StyledText>
       <StyledText>{repository.description}</StyledText>
       <StyledText>{repository.language}</StyledText>
-      <StyledText>Stars: {repository.stargazersCount}</StyledText>
-      <StyledText>Forks: {repository.forksCount}</StyledText>
-      <StyledText>Reviews: {repository.reviewCount}</StyledText>
-      <StyledText>Rating: {repository.ratingAverage}</StyledText>
+      <RepositoryStats repository={repository} />
     </View>
   );
 };
