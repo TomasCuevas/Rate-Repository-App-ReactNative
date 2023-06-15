@@ -7,7 +7,7 @@ import { AppBarTab } from "./AppBarTab";
 //* THEME *//
 import { theme } from "../theme";
 
-const AppBar: React.FC = () => {
+const AppBarAndroid: React.FC = () => {
   return (
     <View style={Styles.container}>
       <ScrollView horizontal style={Styles.tabs}>
@@ -29,4 +29,4 @@ const Styles = StyleSheet.create({
   },
 });
 
-export default AppBar;
+export default AppBarAndroid;

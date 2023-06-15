@@ -1,9 +1,13 @@
-import { Text, View } from "react-native";
+import { Text, View, Platform } from "react-native";
 import { Routes, Route } from "react-router-native";
 
 //* COMPONENTS *//
 import { RepositoryList } from "./RepositoryList";
-import { AppBar } from "./AppBar";
+
+const AppBar = Platform.select({
+  android: () => require("./AppBar.android.tsx").default,
+  default: () => require("./AppBar.tsx").default,
+})();
 
 export const Main = () => {
   return (

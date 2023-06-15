@@ -1,4 +1,4 @@
-import { Image, StyleSheet, View } from "react-native";
+import { Image, StyleSheet, View, Platform } from "react-native";
 
 //* COMPONENT *//
 import { StyledText } from "./StyledText";
@@ -37,7 +37,10 @@ const Styles = StyleSheet.create({
   lenguage: {
     padding: 4,
     color: theme.colors.white,
-    backgroundColor: theme.colors.primary,
+    backgroundColor: Platform.select({
+      android: theme.colors.primary,
+      ios: "green",
+    }),
     alignSelf: "flex-start",
     borderRadius: 7,
     overflow: "hidden",
