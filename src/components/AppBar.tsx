@@ -2,7 +2,7 @@ import { StyleSheet, View } from "react-native";
 import Constants from "expo-constants";
 
 //* COMPONENT *//
-import { StyledText } from "./StyledText";
+import { AppBarTab } from "./AppBarTab";
 
 //* THEME *//
 import { theme } from "../theme";
@@ -10,9 +10,12 @@ import { theme } from "../theme";
 export const AppBar: React.FC = () => {
   return (
     <View style={Styles.container}>
-      <StyledText style={Styles.text} fontWeight="bold">
+      <AppBarTab to="/" active>
         Repositories
-      </StyledText>
+      </AppBarTab>
+      <AppBarTab to="/signin" active>
+        Sign In
+      </AppBarTab>
     </View>
   );
 };
@@ -21,10 +24,9 @@ const Styles = StyleSheet.create({
   container: {
     backgroundColor: theme.appBar.primary,
     paddingTop: Constants.statusBarHeight + 10,
+    flexDirection: "row",
+    gap: 10,
     paddingBottom: 10,
     paddingLeft: 10,
-  },
-  text: {
-    color: theme.appBar.textPrimary,
   },
 });

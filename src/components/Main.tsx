@@ -1,4 +1,5 @@
-import { View } from "react-native";
+import { Text, View } from "react-native";
+import { Routes, Route } from "react-router-native";
 
 //* COMPONENTS *//
 import { RepositoryList } from "./RepositoryList";
@@ -8,7 +9,10 @@ export const Main = () => {
   return (
     <View style={{ flexGrow: 1, flex: 1 }}>
       <AppBar />
-      <RepositoryList />
+      <Routes>
+        <Route path="/" element={<RepositoryList />} />
+        <Route path="/signin" element={<Text>Working on it</Text>} />
+      </Routes>
     </View>
   );
 };
