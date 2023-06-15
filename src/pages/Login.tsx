@@ -29,6 +29,7 @@ export const LoginPage = () => {
         placeholder="Password"
         value={formik.values.password}
         onChangeText={formik.handleChange("password")}
+        secureTextEntry
       />
       <Button onPress={formik.submitForm} title="Login" />
     </View>
