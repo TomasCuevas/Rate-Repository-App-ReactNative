@@ -7,9 +7,9 @@ import { theme } from "../theme";
 interface Props {
   children: React.ReactNode;
   align?: "center";
-  color?: "primary" | "secondary";
+  color?: "primary" | "secondary" | "white";
   fontSize?: "subheading";
-  fontWeight?: "bold";
+  fontWeight?: "bold" | "normal";
   style?: any;
   [key: string]: any;
 }
@@ -28,8 +28,10 @@ export const StyledText: React.FC<Props> = ({
     align === "center" && Styles.textAlignCenter,
     color === "primary" && Styles.colorPrimary,
     color === "secondary" && Styles.colorSecondary,
+    color === "white" && Styles.colorWhite,
     fontSize === "subheading" && Styles.subheading,
     fontWeight === "bold" && Styles.bold,
+    fontWeight === "normal" && Styles.normal,
     style,
   ];
 
@@ -56,8 +58,14 @@ const Styles = StyleSheet.create({
   colorSecondary: {
     color: theme.colors.textSecondary,
   },
+  colorWhite: {
+    color: theme.colors.white,
+  },
   bold: {
     fontWeight: theme.fontWeights.bold as "bold",
+  },
+  normal: {
+    fontWeight: theme.fontWeights.normal as "normal",
   },
   subheading: {
     fontSize: theme.fontSizes.subheading,

@@ -1,23 +1,26 @@
 import { StyleSheet } from "react-native";
-import { Link } from "react-router-native";
+import { Link, useLocation } from "react-router-native";
 
 //* COMPONENT *//
 import { StyledText } from "./StyledText";
 
-//* THEME *//
-import { theme } from "../theme";
-
 //* INTERFACE *//
 interface Props {
   children: React.ReactNode;
-  active: boolean;
   to: string;
 }
 
-export const AppBarTab: React.FC<Props> = ({ children, active, to }) => {
+export const AppBarTab: React.FC<Props> = ({ children, to }) => {
+  const { pathname } = useLocation();
+  const isActive = pathname === to;
+
   return (
     <Link to={to}>
-      <StyledText style={Styles.text} fontWeight="bold">
+      <StyledText
+        style={Styles.text}
+        color={isActive ? "white" : "secondary"}
+        fontWeight={isActive ? "bold" : "normal"}
+      >
         {children}
       </StyledText>
     </Link>
@@ -26,6 +29,7 @@ export const AppBarTab: React.FC<Props> = ({ children, active, to }) => {
 
 const Styles = StyleSheet.create({
   text: {
-    color: theme.appBar.textPrimary,
+    // color: theme.appBar.textPrimary,
+    paddingHorizontal: 10,
   },
 });

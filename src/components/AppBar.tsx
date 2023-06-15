@@ -1,4 +1,4 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, ScrollView } from "react-native";
 import Constants from "expo-constants";
 
 //* COMPONENT *//
@@ -10,12 +10,13 @@ import { theme } from "../theme";
 export const AppBar: React.FC = () => {
   return (
     <View style={Styles.container}>
-      <AppBarTab to="/" active>
-        Repositories
-      </AppBarTab>
-      <AppBarTab to="/signin" active>
-        Sign In
-      </AppBarTab>
+      <ScrollView horizontal style={Styles.tabs}>
+        <AppBarTab to="/">Repositories</AppBarTab>
+        <AppBarTab to="/signin">Sign In</AppBarTab>
+        <AppBarTab to="/register">Register</AppBarTab>
+        <AppBarTab to="/signin">Sub to Twitch account</AppBarTab>
+        <AppBarTab to="/profile">Profile</AppBarTab>
+      </ScrollView>
     </View>
   );
 };
@@ -24,9 +25,9 @@ const Styles = StyleSheet.create({
   container: {
     backgroundColor: theme.appBar.primary,
     paddingTop: Constants.statusBarHeight + 10,
-    flexDirection: "row",
-    gap: 10,
-    paddingBottom: 10,
     paddingLeft: 10,
+  },
+  tabs: {
+    paddingBottom: 15,
   },
 });
