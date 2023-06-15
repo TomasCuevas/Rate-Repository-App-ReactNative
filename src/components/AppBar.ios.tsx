@@ -13,7 +13,7 @@ export const AppBar: React.FC = () => {
       <ScrollView horizontal style={Styles.tabs}>
         <AppBarTab to="/">Repositories</AppBarTab>
         <AppBarTab to="/signin">Sign In</AppBarTab>
-        <AppBarTab to="/signin">Versión de Android</AppBarTab>
+        <AppBarTab to="/signin">Versión de iOS</AppBarTab>
       </ScrollView>
     </View>
   );

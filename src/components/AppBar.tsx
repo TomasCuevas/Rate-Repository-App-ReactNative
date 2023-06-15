@@ -7,12 +7,13 @@ import { AppBarTab } from "./AppBarTab";
 //* THEME *//
 import { theme } from "../theme";
 
-const AppBar: React.FC = () => {
+export const AppBar: React.FC = () => {
   return (
     <View style={Styles.container}>
       <ScrollView horizontal style={Styles.tabs}>
         <AppBarTab to="/">Repositories</AppBarTab>
         <AppBarTab to="/signin">Sign In</AppBarTab>
+        <AppBarTab to="/signin">Versión por defecto</AppBarTab>
       </ScrollView>
     </View>
   );
@@ -28,5 +29,3 @@ const Styles = StyleSheet.create({
     paddingBottom: 15,
   },
 });
-
-export default AppBar;
