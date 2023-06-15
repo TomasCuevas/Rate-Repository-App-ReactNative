@@ -1,18 +1,25 @@
-import { StyleSheet, TextInput } from "react-native";
+import { StyleSheet, TextInput, View, Text } from "react-native";
 
 //* INTERFACE *//
 interface Props {
+  error?: string;
   style?: any;
   [key: string]: any;
 }
 
-export const StyledTextInput: React.FC<Props> = ({ style, ...props }) => {
-  const inputStyle = {
-    ...Styles.textInput,
-    style,
-  };
+export const StyledTextInput: React.FC<Props> = ({
+  error,
+  style,
+  ...props
+}) => {
+  const inputStyle = [Styles.textInput, style, error && Styles.error];
 
-  return <TextInput style={inputStyle} {...props}></TextInput>;
+  return (
+    <View>
+      <TextInput style={inputStyle} {...props}></TextInput>
+      {error && <Text style={Styles.errorMessage}>{error}</Text>}
+    </View>
+  );
 };
 
 const Styles = StyleSheet.create({
@@ -22,5 +29,11 @@ const Styles = StyleSheet.create({
     borderColor: "#999",
     paddingHorizontal: 10,
     paddingVertical: 5,
+  },
+  errorMessage: {
+    color: "red",
+  },
+  error: {
+    borderColor: "red",
   },
 });
