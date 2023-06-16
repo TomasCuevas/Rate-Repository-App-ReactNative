@@ -1,11 +1,32 @@
+export interface IData {
+  totalCount: number;
+  edges: IEdge[];
+  pageInfo: IPageInfo;
+}
+
 export interface IRepository {
   id: string;
+  name: string;
+  ownerName: string;
+  createdAt: Date;
   fullName: string;
-  description: string;
-  language: string;
+  reviewCount: number;
+  ratingAverage: number;
   forksCount: number;
   stargazersCount: number;
-  ratingAverage: number;
-  reviewCount: number;
+  description: string;
+  language: string;
   ownerAvatarUrl: string;
+}
+
+interface IEdge {
+  node: IRepository;
+  cursor: string;
+}
+
+interface IPageInfo {
+  hasNextPage: boolean;
+  hasPreviousPage: boolean;
+  startCursor: string;
+  endCursor: string;
 }
