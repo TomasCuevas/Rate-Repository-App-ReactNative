@@ -1,1 +1,1 @@
-export * from "./useRepositories";
+export { default as useRepositories } from "./useRepositories";

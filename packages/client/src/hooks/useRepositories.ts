@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 //* INTERFACES *//
 import { IData, IRepository } from "../interfaces";
 
-export const useRepositories = () => {
+const useRepositories = () => {
   const [repositories, setRepositories] = useState<IRepository[]>();
 
   const getRepository = async () => {
@@ -21,3 +21,5 @@ export const useRepositories = () => {
 
   return { repositories };
 };
+
+export default useRepositories;
