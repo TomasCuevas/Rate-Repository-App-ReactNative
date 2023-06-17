@@ -19,7 +19,7 @@ export interface IRepository {
   ownerAvatarUrl: string;
 }
 
-interface IEdge {
+export interface IEdge {
   node: IRepository;
   cursor: string;
 }

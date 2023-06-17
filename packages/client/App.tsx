@@ -8,11 +8,11 @@ import { Main } from "./src/components/Main";
 //* UTIL *//
 import { createApolloClient } from "./src/utils";
 
-const apolloClient = createApolloClient();
+const apolloClient = createApolloClient;
 
 export default function App() {
   return (
-    <ApolloProvider client={apolloClient as any}>
+    <ApolloProvider client={apolloClient}>
       <StatusBar style="light" />
       <NativeRouter>
         <Main />

@@ -1,7 +1,6 @@
-import ApolloClient from "apollo-boost";
+import { ApolloClient, InMemoryCache } from "@apollo/client";
 
-export const createApolloClient = () => {
-  return new ApolloClient({
-    uri: "http://192.168.1.11:5000/graphql",
-  });
-};
+export const createApolloClient = new ApolloClient({
+  uri: "http://192.168.1.11:4000/graphql",
+  cache: new InMemoryCache(),
+});
